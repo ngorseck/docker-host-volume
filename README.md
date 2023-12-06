@@ -11,15 +11,15 @@ Ce projet vous montre comment mettre en place un volume docker pour une applicat
 
 > J'ai d'abord créé un projet spring boot de base.
 
-> J'ai ensuite créé un repertoire ***datas*** a la racine du proet pour qui monter un volume
+> J'ai ensuite créé un repertoire ***datas*** a la racine du projet pour y monter un volume
 
 > Puis j'ai ajouté cette configuration dans le fichier application.properties : 
 ```bash
 app.data.folder = ${directoryDatas:./datas/}
-C'est juste une varibale d'environnement
+directoryDatas est juste une varibale d'environnement et si cette varibale nexiste pas alors ***./datas/*** sera la valeur de app.data.folder
 ```
 
-## Création dun endpoint de création dun fichier dans le répertoire ou point notre variable d'environnement
+## Mise en place d'un endpoint de création d'un fichier dans le répertoire de notre variable d'environnement
 ```bash
     private String directory_name ;
     ***La valeur de directory_name vient de la variable d'environnement ou par défaut c'est le répertoire datas***
@@ -36,8 +36,8 @@ C'est juste une varibale d'environnement
 ```
 
 ## Conteneurisation
-Ici un repertoire ***/app/data*** sera cree lors de la creation des conteneur 
-et ce dernier est utiliser comme ***volume dans le docker compose***
+Ici un repertoire ***/app/data*** sera créé lors de la création des conteneurs 
+et ce dernier est défini comme ***volume dans le docker compose***
 ```bash
 FROM openjdk:17-jdk-slim
 
@@ -99,16 +99,16 @@ ls  app/data/
 Et pour lancer le projet avec le port 8080 puis visualisation des endpoints puis test :
 
 ```bash
-Pour la création dun fichier clients.txt qui sera visible dans le conteneur (app/data) et en local (dans le répertoiredatas)
+Pour la création dun fichier clients.txt qui sera visible dans le conteneur (app/data) et en local (dans le répertoire datas)
 http://localhost:8080/create/clients
-Pour la création dun fichier fournisseurs.txt qui sera visible dans le conteneur (app/data) et en local (dans le répertoiredatas)
+Pour la création dun fichier fournisseurs.txt qui sera visible dans le conteneur (app/data) et en local (dans le répertoire datas)
 http://localhost:8080/create/fournisseurs
-Pour la création dun fichier commandes.txt qui sera visible dans le conteneur (app/data) et en local (dans le répertoiredatas)
+Pour la création dun fichier commandes.txt qui sera visible dans le conteneur (app/data) et en local (dans le répertoire datas)
 http://localhost:8080/create/commandes
 ```
 
 ## Usage des volumes
 ```bash
 Vous pouvez ajouter manuellement un fichier dans le répertoire datas puis 
-vérifier dans la conteneur, vous allez voir qu'il y sera'
+vérifier dans la conteneur, vous allez voir qu'il y sera.
 ```
