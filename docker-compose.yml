@@ -1,0 +1,20 @@
+version: '3.9'
+
+services:
+
+  app-dockervolume-backend:
+    image: dockervolume-backend:1.0
+    container_name: container-dockervolume-backend
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    environment:
+      directoryDatas: /app/data/
+    volumes:
+      - ./datas:/app/data
+
+volumes:
+  datas:
