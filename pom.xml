@@ -15,6 +15,8 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
+		<docker.user/>
+		<docker.token/>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -35,6 +37,29 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<!-- pluging for github action -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+					<image>
+						<name>ngorseck/${project.artifactId}:${project.version}</name>
+					</image>
+					<docker>
+						<publishRegistry>
+							<username>${docker.user}</username>
+							<password>${docker.token}</password>
+							<url>https://index.docker.io/v1</url>
+						</publishRegistry>
+					</docker>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
