@@ -112,3 +112,9 @@ http://localhost:8080/create/commandes
 Vous pouvez ajouter manuellement un fichier dans le répertoire datas puis 
 vérifier dans la conteneur, vous allez voir qu'il y sera.
 ```
+
+## github action
+```bash
+Un plugin est ajouter dans le fichier pom.xml
+un fichier build.yml est aussi ajouté dans .github/workflows pour les jobs
+```
