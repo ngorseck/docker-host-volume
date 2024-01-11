@@ -17,6 +17,6 @@ jobs:
       - name: log to docker hub
         run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_TOKEN }}
       - name: tag image
-        run: docker tag evalspringse:latest ngorseck/dockervolume
+        run: docker tag dockervolume-backend:1.0 ngorseck/dockervolume-backend:1.0
       - name: push to docker hub tests
-        run: docker push ngorseck/dockervolume
+        run: docker push ngorseck/dockervolume-backend:1.0
