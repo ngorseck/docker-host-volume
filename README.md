@@ -1,7 +1,7 @@
 ![work status](https://img.shields.io/badge/work-on%20progress-red.svg)
-![Ngor Seck](https://img.shields.io/badge/Ngor%20Seck-Java-green)
-![Java](https://img.shields.io/badge/Ngor%20Seck-Spring-yellowgreen)
-![Jetty](https://img.shields.io/badge/Ngor%20Seck-TomcatWebServer-blue)
+![Ngor Seck](https://img.shields.io/badge/Ngor%20SECK-Java-green)
+![Java](https://img.shields.io/badge/Ngor%20SECK-Spring-yellowgreen)
+![Jetty](https://img.shields.io/badge/Ngor%20SECK-TomcatWebServer-blue)
 # Documentation
 
 Ce projet vous montre comment mettre en place un volume docker pour une application spring boot piloter par maven.
