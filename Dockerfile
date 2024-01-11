@@ -6,6 +6,6 @@ EXPOSE 8080
 
 RUN mkdir -p /app/data
 
-ADD target/dockervolume.jar dockervolume.jar
+ADD docker/dockervolume.jar dockervolume.jar
 
 ENTRYPOINT ["java", "-jar", "dockervolume.jar"]
