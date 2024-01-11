@@ -1,4 +1,4 @@
-name: build
+name: push-to-docker-hub
 
 on:
   push:
@@ -17,10 +17,8 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
-      - name: Build with Maven
-        run: mvn -B package
-#      - name: Publish to Docker
-#        run: |
-#            mvn -B spring-boot:build-image -Dspring-boot.build-image.publish=true \
-#                -Ddocker.user=${{ secrets.DOCKER_USER }} -Ddocker.token=${{ secrets.DOCKER_TOKEN }} \
-#                -DskipTests
+      - name: Publish to Docker
+        run: |
+          mvn -B spring-boot:build-image -Dspring-boot.build-image.publish=true \
+              -Ddocker.user=${{ secrets.DOCKER_USER }} -Ddocker.token=${{ secrets.DOCKER_TOKEN }} \
+              -DskipTests
